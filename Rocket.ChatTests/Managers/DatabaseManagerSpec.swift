@@ -24,16 +24,16 @@ private let testServers = [[
 extension DatabaseManager {
 
     static func setupTestServers() {
-        UserDefaults.group.set(testServers, forKey: ServerPersistKeys.servers)
+        UserDefaults.standard.set(testServers, forKey: ServerPersistKeys.servers)
         DatabaseManager.selectDatabase(at: 0)
     }
 
     static func clearAllServers() {
-        UserDefaults.group.set([], forKey: ServerPersistKeys.servers)
+        UserDefaults.standard.set([], forKey: ServerPersistKeys.servers)
     }
 
     static func removeServersKey() {
-        UserDefaults.group.removeObject(forKey: ServerPersistKeys.servers)
+        UserDefaults.standard.removeObject(forKey: ServerPersistKeys.servers)
     }
 }
 
@@ -44,12 +44,12 @@ class DatabaseManagerSpec: XCTestCase {
     }
 
     func testSelectedIndex() {
-        UserDefaults.group.set(0, forKey: ServerPersistKeys.selectedIndex)
+        UserDefaults.standard.set(0, forKey: ServerPersistKeys.selectedIndex)
         XCTAssertEqual(DatabaseManager.selectedIndex, 0, "selectedIndex is correct")
     }
 
     func testSelectedIndexEmpty() {
-        UserDefaults.group.removeObject(forKey: ServerPersistKeys.selectedIndex)
+        UserDefaults.standard.removeObject(forKey: ServerPersistKeys.selectedIndex)
         XCTAssertEqual(DatabaseManager.selectedIndex, 0, "selectedIndex returns 0 when value is nil")
     }
 
@@ -91,7 +91,7 @@ class DatabaseManagerSpec: XCTestCase {
         ]]
 
         // Setup servers & a different selected index
-        UserDefaults.group.set(servers, forKey: ServerPersistKeys.servers)
+        UserDefaults.standard.set(servers, forKey: ServerPersistKeys.servers)
         DatabaseManager.selectDatabase(at: 4)
 
         // Clear the invalids

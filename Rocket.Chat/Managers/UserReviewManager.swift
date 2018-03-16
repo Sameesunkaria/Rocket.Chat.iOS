@@ -14,7 +14,7 @@ final class UserReviewManager {
 
     private let nextDateForReviewKey: String = "kNextDateForReview"
 
-    private let defaults = UserDefaults.group
+    private let defaults = UserDefaults.standard
 
     internal let week: TimeInterval = 604800
 

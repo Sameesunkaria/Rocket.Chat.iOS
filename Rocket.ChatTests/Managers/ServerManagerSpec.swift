@@ -12,7 +12,7 @@ import XCTest
 class ServerManagerSpec: XCTestCase {
 
     func testUpdateServerInformation() {
-        let defaults = UserDefaults.group
+        let defaults = UserDefaults.standard
 
         // Setup server for testing
         let servers = [[
@@ -40,7 +40,7 @@ class ServerManagerSpec: XCTestCase {
     }
 
     func testUpdateServerInformationInvalidSettings() {
-        let defaults = UserDefaults.group
+        let defaults = UserDefaults.standard
 
         // Setup server for testing
         let servers = [[
