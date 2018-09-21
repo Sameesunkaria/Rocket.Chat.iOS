@@ -63,6 +63,8 @@ extension NSItemProvider {
                 } else if let url = item as? URL, let data = try? Data(contentsOf: url), let dataImage = UIImage(data: data) {
                     image = dataImage
                     name = url.lastPathComponent
+                } else if let receivedImage = item as? UIImage {
+                    image = receivedImage
                 } else {
                     image = UIImage()
                 }
